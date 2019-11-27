@@ -1,3 +1,31 @@
+A few changes to Editra.
+NOTE home page is down, latest versions appear to be available at:
+
+  * https://github.com/wxWidgets/wxPython/tree/master/wx/tools/Editra
+  * https://github.com/mogaal/editra
+
+This reports as version 0.7.20 (as of Nov 2019 both projects above
+report the same version, I'm not clear what if any differences there
+are between the two).
+
+Also see https://github.com/XHermitOne/editra which appears to be the
+start of Python3 support.
+
+This branch does not have a real implementation of _winrecycle.py
+
+Tested with
+
+  * Windows 32-bit Python 2.7.10
+  * mxMSW 2.8.12.1
+
+To run issue:
+
+    python editra
+
+Original readme below.
+
+--------------------------------------------------------------------
+
 Project Name: Editra
 Author: Cody Precord
 Email: cprecord@editra.org
