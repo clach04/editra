@@ -25,6 +25,18 @@ To run issue:
 Under windows Profile (config) is stored in pickled (binary) file
 `%APPDATA%\Editra\profiles\default.ppb`. TODO replace with json.
 
+File loading happens via:
+
+    src\ed_stc.py(1810)LoadFile()
+      src\ed_basestc.py(843)LoadFile()
+        src\ebmlib\fileimpl.py(189)SetPath()
+        src\ed_txt.py(380)Read()
+            DetectEncoding()
+            src\ebmlib\fileimpl.py(80)DoOpen()
+
+If DoOpen() can return a (binary) file like object - should be able
+to open files using different approachs, e.g. remote ftp/scp/etc.
+
 Original readme below.
 
 --------------------------------------------------------------------
