@@ -93,11 +93,17 @@ class FileObjectImpl(object):
             if self._path.lower().endswith('.chi'):
                 if mode == 'rb':
                     # hack time - attempt to support Tombo encrypted files http://tombo.osdn.jp/En/
+                    # FIXME OnIdle()->DoOnIdle() appears to fire if prompting for password, which in turn fires AskToReload() which then prompts user
+                    #   check into IsLoading()
+                    ### look at doing self.SetModTime(ebmlib.GetFileModTime(path)) before hand...?
                     # FIXME see how to either prompt with wx Dialog or pickup from a file
-                    import getpass
-                    password = getpass.getpass("Password: ")
+                    #import getpass
+                    #password = getpass.getpass("Password: ")
+                    import wx
+                    #password = wx.GetTextFromUser("Password (warning visible): ", "Password required")
+                    password = wx.GetPasswordFromUser("Password: ", "Password required")
+                    #password = 'mypassword'  # DEBUG hard coded password.
                     password = password.encode('us-ascii')
-                    #password = b'mypassword'  # DEBUG hard coded password.
 
                     fileptr = open(self._path, mode)
                     plain_text = chi_io.read_encrypted_file(fileptr, password)
