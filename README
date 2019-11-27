@@ -22,6 +22,9 @@ To run issue:
 
     python editra
 
+Under windows Profile (config) is stored in pickled (binary) file
+`%APPDATA%\Editra\profiles\default.ppb`. TODO replace with json.
+
 Original readme below.
 
 --------------------------------------------------------------------
