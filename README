@@ -13,6 +13,7 @@ Also see https://github.com/XHermitOne/editra which appears to be the
 start of Python3 support.
 
 This branch does not have a real implementation of _winrecycle.py
+See https://github.com/editra-org/editra/issues/1
 
 Tested with
 
