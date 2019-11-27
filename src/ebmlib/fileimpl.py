@@ -23,6 +23,8 @@ __revision__ = "$Revision: 70309 $"
 import os
 import sys
 
+import chi_io  # from PyTombo
+
 # Editra Business Model Imports
 import txtutil
 import fileutil
@@ -88,7 +90,31 @@ class FileObjectImpl(object):
             return False
 
         try:
-            file_h = open(self._path, mode)
+            if self._path.lower().endswith('.chi'):
+                if mode == 'rb':
+                    # hack time - attempt to support Tombo encrypted files http://tombo.osdn.jp/En/
+                    # FIXME see how to either prompt with wx Dialog or pickup from a file
+                    import getpass
+                    password = getpass.getpass("Password: ")
+                    password = password.encode('us-ascii')
+                    #password = b'mypassword'  # DEBUG hard coded password.
+
+                    fileptr = open(self._path, mode)
+                    plain_text = chi_io.read_encrypted_file(fileptr, password)
+                    try:
+                        file_h = chi_io.StringIO.StringIO(plain_text)
+                    except ChiIO, msg:
+                        # FIXME raise IOError()
+                        self.SetLastError(unicode(msg))
+                        return False
+                    finally:
+                        fileptr.close()
+                        del(password)
+                else:
+                    # FIXME raise IOError()
+                    self.SetLastError(unicode('mode %r not supported for Tombo chi files.' % mode))
+            else:
+                file_h = open(self._path, mode)
         except (IOError, OSError), msg:
             self.SetLastError(unicode(msg))
             return False
