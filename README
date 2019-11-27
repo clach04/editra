@@ -3,10 +3,11 @@ NOTE home page is down, latest versions appear to be available at:
 
   * https://github.com/wxWidgets/wxPython/tree/master/wx/tools/Editra
   * https://github.com/mogaal/editra
+  * https://github.com/editra-org
 
 This reports as version 0.7.20 (as of Nov 2019 both projects above
 report the same version, I'm not clear what if any differences there
-are between the two).
+are between the first two - the later is new as of end of Nov 2019).
 
 Also see https://github.com/XHermitOne/editra which appears to be the
 start of Python3 support.
