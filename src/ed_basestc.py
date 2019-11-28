@@ -30,6 +30,7 @@ import eclib
 import ebmlib
 import ed_msg
 import ed_txt
+import ed_chi  # clach04
 from syntax import syntax
 from syntax import synglob
 import autocomp
@@ -68,7 +69,8 @@ class EditraBaseStc(wx.stc.StyledTextCtrl, ed_style.StyleMgr):
         ed_style.StyleMgr.__init__(self, self.GetStyleSheet())
 
         # Attributes
-        self.file = ed_txt.EdFile()
+        #self.file = ed_txt.EdFile()
+        self.file = ed_chi.EdFileTombo()
         self._code = dict(compsvc=autocomp.AutoCompService.GetCompleter(self),
                           synmgr=syntax.SyntaxMgr(ed_glob.CONFIG['CACHE_DIR']),
                           keywords=[ ' ' ],
