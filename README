@@ -1,9 +1,15 @@
 A few changes to Editra.
-NOTE home page is down, latest versions appear to be available at:
+NOTE home page is down (archive at https://web.archive.org/web/20121226083533/http://editra.org/documentation),
+latest versions appear to be available at:
 
   * https://github.com/wxWidgets/wxPython/tree/master/wx/tools/Editra
   * https://github.com/mogaal/editra
   * https://github.com/editra-org
+
+Original project pages still up:
+
+  * https://code.google.com/archive/p/editra/
+  * https://code.google.com/archive/p/editra-plugins/
 
 This reports as version 0.7.20 (as of Nov 2019 both projects above
 report the same version, I'm not clear what if any differences there
