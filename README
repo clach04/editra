@@ -1,4 +1,7 @@
 A few changes to Editra.
+
+Also see
+
 NOTE home page is down (archive at https://web.archive.org/web/20121226083533/http://editra.org/documentation),
 latest versions appear to be available at:
 
@@ -31,6 +34,9 @@ Tested with
 To run issue:
 
     python editra
+
+See https://github.com/clach04/editra-plugins/blob/wiki/DevelopingPlugins.md for plugin dev notes.
+NOTE PYTHONPATH only needs to be setufor the initial develop call, Editra does not need this setting for runtime.
 
 Under windows Profile (config) is stored in pickled (binary) file
 `%APPDATA%\Editra\profiles\default.ppb`. TODO replace with json.
