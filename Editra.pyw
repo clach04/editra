@@ -23,6 +23,7 @@ __revision__ = "$Revision: 63538 $"
 
 #--------------------------------------------------------------------------#
 # Dependencies
+import ctypes
 import sys
 import os
 
@@ -47,6 +48,9 @@ except ImportError:
 # the plugin managers meta registry is redesigned.
 
 def main():
+    # Set icon in taskbar under Microsoft Windows to match app icon
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('dummy.string.content.does.not.matter')  # see https://stackoverflow.com/a/1552105/674475
+
     # The initial import above is necessary to get the path of where
     # Editra is installed so that the src package can be put on the path.
     # If the src module is not on the path the plugins are unable to import
