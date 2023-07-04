@@ -37,8 +37,8 @@ class EdFileTombo(ed_txt.EdFile):
                     fileptr = open(self._path, mode)
                     plain_text = chi_io.read_encrypted_file(fileptr, password)
                     try:
-                        file_h = chi_io.StringIO.StringIO(plain_text)
-                    except ChiIO, msg:
+                        file_h = chi_io.FakeFile(plain_text)
+                    except chi_io.ChiIO, msg:
                         # FIXME raise IOError()
                         self.SetLastError(unicode(msg))
                         return False
