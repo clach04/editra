@@ -17,6 +17,7 @@ __revision__ = "$Revision: 72103 $"
 
 #--------------------------------------------------------------------------#
 # Imports
+from io import BytesIO
 import sys
 import re
 import time
@@ -264,7 +265,7 @@ class EdFile(ebmlib.FileObjectImpl):
 
         if enc is None:
             Log("[ed_txt][info] Doing brute force encoding check")
-            enc = GuessEncoding(self.GetPath(), 4096)
+            enc = GuessEncoding(self.Handle, 4096)
 
         if enc is None:
             self._fuzzy_enc = True
@@ -759,17 +760,21 @@ def FallbackReader(fname):
 
     return (None, None)
 
-def GuessEncoding(fname, sample):
+def GuessEncoding(fhandle, sample):
     """Attempt to guess an encoding
-    @param fname: filename
-    @param sample: pre-read amount
+    @param fname: file handle
+    @param sample: pre-read amount (count in **characters**)
     @return: encoding or None
 
     """
+    sample_data = fhandle.read(sample * 4)  # works for most, probably will not work for emoji (for the entire sample size)
+    fhandle.seek(0)
+    fake_file = BytesIO(sample_data)
     for enc in GetEncodings():
         try:
+            fake_file.seek(0)
             with open(fname, 'rb') as handle:
-                with codecs.getreader(enc)(handle) as reader:
+                with codecs.getreader(enc)(fake_file) as reader:
                     value = reader.read(sample)
                     if str('\0') in value:
                         continue
