@@ -3,6 +3,8 @@ A few changes to Editra.
   * https://github.com/clach04/editra - see branches wip and [https://github.com/clach04/editra/tree/tombo_chi](https://github.com/clach04/editra/tree/tombo_chi)
   * https://github.com/clach04/editra-plugins - see branch [chifilebrowser](https://github.com/clach04/editra-plugins/tree/chifilebrowser)
 
+Seems to work with Python 2.7.18 and wxPython3.0-win64-3.0.2.0-py27 from https://sourceforge.net/projects/wxpython/
+
 Also see
 
 NOTE home page is down (archive at https://web.archive.org/web/20121226083533/http://editra.org/documentation),
