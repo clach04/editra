@@ -135,6 +135,7 @@ class UpdateService(object):
         @return: version number of latest available program
 
         """
+        util.Log("[updater][info] GetCurrentVersionStr() ed_glob.HOME_PAGE is %r" % ed_glob.HOME_PAGE)
         page = self.GetPageText(ed_glob.HOME_PAGE + "/version.php?check=True")
         found = re.findall(RE_VERSION, page)
         if len(found):

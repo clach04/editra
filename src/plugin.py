@@ -669,6 +669,7 @@ class PluginManager(object):
         @postcondition: all plugins in the environment are initialized
 
         """
+        self.LOG("[pluginmgr][info] InitPlugins Entry")
         if pkg_resources is None:
             return
 

@@ -754,6 +754,12 @@ class EdPages(ed_book.EdBaseBook):
                 except Exception, msg:
                     self.LOG("[ed_pages][err] Failed to open file %s\n" % path2file)
                     self.LOG("[ed_pages][err] %s" % msg)
+                    #### debug
+                    import traceback
+                    traceback.print_exc()
+                    self.LOG("[ed_pages][err] %r" % traceback.format_exc())
+                    self.LOG("[ed_pages][err] %s" % traceback.format_exc())
+                    #### debug
 
                     # File could not be opened/read give up
                     # Don't raise a dialog during a session load error as if the
