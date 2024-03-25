@@ -12,7 +12,10 @@ latest versions appear to be available at:
 
   * https://github.com/wxWidgets/wxPython/tree/master/wx/tools/Editra
   * https://github.com/mogaal/editra
+      * this fork https://github.com/clach04/editra/
+      * https://github.com/XHermitOne/editra which appears to be the start of Python3 support.
   * https://github.com/editra-org
+      * https://github.com/clach04/editra_editra
 
 Original project pages still up:
 
@@ -25,8 +28,6 @@ This reports as version 0.7.20 (as of Nov 2019 both projects above
 report the same version, I'm not clear what if any differences there
 are between the first two - the later is new as of end of Nov 2019).
 
-Also see https://github.com/XHermitOne/editra which appears to be the
-start of Python3 support.
 
 This branch does not have a real implementation of _winrecycle.py
 See https://github.com/editra-org/editra/issues/1
