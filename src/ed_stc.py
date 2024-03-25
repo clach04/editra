@@ -1816,6 +1816,7 @@ class EditraStc(ed_basestc.EditraBaseStc):
 
         """
         fsize = ebmlib.GetFileSize(path)
+        self.SetModTime(ebmlib.GetFileModTime(path))  # set mod time, so that if on idle (e.g. errors or other pauses/slowdowns) and file still not loaded won't be prompted to reload
         if fsize < 1048576: # 1MB
             return super(EditraStc, self).LoadFile(path)
         else:
